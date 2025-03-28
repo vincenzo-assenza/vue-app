@@ -1,3 +1,20 @@
 {
-  "brand": "CreativeShop"
+  "brand": "CreativaShop",
+  "home": "Home",
+  "categories": "Categorías",
+  "copyright": "© 2025 CreativaShop. Todos los derechos reservados.",
+  "hero_title": "Lorem Ipsum",
+  "hero_subtitle": "Lorem Ipsum es simplemente un texto ficticio de la industria de la impresión y la composición.",
+  "hero_cta": "Descubre las colecciones",
+  "loading": "Cargando...",
+  "error": "Error al cargar: ",
+  "product_cta": "Ficha del producto",
+  "add_to_cart": "Añadir al carrito",
+  "reviews": "Reseñas",
+  "back": "Volver a la lista de productos",
+  "availability": "Disponibilidad:",
+  "colors": "Colores:",
+  "shipping_time": "Tiempo de entrega:",
+  "dimensions": "Dimensiones:",
+  "materials": "Materiales:"
 }

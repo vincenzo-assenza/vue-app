@@ -1,18 +1,20 @@
 <template>
   <header class="bg-white shadow-md sticky top-0 z-40">
     <div class="flex justify-between items-center p-6 md:px-12">
-      <a href="/" class="text-1xl font-bold text-blue-600">
-        <img :src="logoImage" width="150" alt="logo-alt" />
-      </a>
+      <NuxtLinkLocale href="/">
+        <img :src="logoImage" width="150" :alt="$t('brand')" />
+      </NuxtLinkLocale>
 
       <!-- Navigation Desktop -->
       <nav class="hidden md:flex space-x-6">
-        <NuxtLinkLocale to="/" class="text-gray-700 hover:text-blue-600">Home</NuxtLinkLocale>
-        <NuxtLinkLocale to="/categories" class="text-gray-700 hover:text-blue-600">Categories</NuxtLinkLocale>
+        <NuxtLinkLocale to="/" class="text-gray-700 hover:text-blue-600">{{ $t('home') }}</NuxtLinkLocale>
+        <NuxtLinkLocale to="/categories" class="text-gray-700 hover:text-blue-600">{{ $t('categories') }}</NuxtLinkLocale>
       </nav>
 
       <!-- Language Switcher -->
-      <Language />
+      <div class="md:block hidden">
+        <Language />
+      </div>
 
       <!-- Hamburger Menu -->
       <button @click="toggleMenu" class="md:hidden text-gray-700 text-2xl">
@@ -21,22 +23,32 @@
     </div>
 
     <!-- Dropdown Mobile -->
-    <div v-if="menuOpen" class="md:hidden bg-white shadow-md p-4">
-      <NuxtLinkLocale to="/" class="block py-2 text-gray-700 hover:text-blue-600">Home</NuxtLinkLocale>
-      <NuxtLinkLocale to="/categories" class="block py-2 text-gray-700 hover:text-blue-600">Categorie</NuxtLinkLocale>
+    <div v-if="menuOpen" class="md:hidden bg-white shadow-md p-6 absolute w-full">
+      <NuxtLinkLocale to="/" class="block py-2 text-gray-700 hover:text-blue-600">{{ $t('home') }}</NuxtLinkLocale>
+      <NuxtLinkLocale to="/categories" class="block py-2 text-gray-700 hover:text-blue-600">{{ $t('categories') }}</NuxtLinkLocale>
+
+      <div class="md:hidden block absolute right-6 top-6">
+        <Language />
+      </div>
     </div>
   </header>
 </template>
 
 <script setup>
+  import { useRoute } from "vue-router";
   import { ref } from "vue";
   import logoImage from '@/assets/media/logo-p.png';
 
+  const route=useRoute();
   const menuOpen=ref(false);
 
   const toggleMenu=() => {
     menuOpen.value=!menuOpen.value;
   };
+
+  watch(() => route.fullPath, () => {
+    menuOpen.value=false;
+  });
 </script>
 
 <style>

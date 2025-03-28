@@ -1,5 +1,5 @@
 <template>
-  <div class="relative hidden md:block text-left">
+  <div class="text-left">
     <button @click="toggleDropdown" class="px-4 py-2 bg-gray-200 rounded-md flex items-center">
       {{ currentLanguage.label }}
       <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
