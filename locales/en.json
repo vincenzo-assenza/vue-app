@@ -1,20 +1,38 @@
 {
-  "brand": "CreativaShop",
-  "home": "Home",
-  "categories": "Categories",
-  "copyright": "© 2025 CreativaShop. All rights reserved.",
-  "hero_title": "Lorem Ipsum",
-  "hero_subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  "hero_cta": "Discover the collections",
-  "loading": "Loading...",
-  "error": "Error loading: ",
-  "product_cta": "Product details",
-  "add_to_cart": "Add to cart",
-  "reviews": "Reviews",
-  "back": "Back to product list",
-  "availability": "Availability:",
-  "colors": "Colors:",
-  "shipping_time": "Delivery time:",
-  "dimensions": "Dimensions:",
-  "materials": "Materials:"
+  "layouts": {
+    "title": "Creativa Shop",
+    "copyright": "© 2025 CreativaShop. All rights reserved."
+  },
+  "logo": {
+    "alt": "CreativaShop"
+  },
+  "product": {
+    "cta": "Product details",
+    "add_to_cart": "Add to cart",
+    "reviews": "Reviews",
+    "back": "Back to product list",
+    "availability": "Availability:",
+    "colors": "Colors:",
+    "shipping_time": "Shipping time:",
+    "dimensions": "Dimensions:",
+    "materials": "Materials:"
+  },
+  "categories": {
+    "title": "Categories",
+    "meta": {
+      "title": "Categories",
+      "description": "Lorem ipsum dolor sit"
+    },
+    "cta":"Discover collection"
+  },
+  "hero": {
+    "title": "Lorem Ipsum",
+    "subtitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "cta": "Discover the collections"
+  },
+  "common": {
+    "home": "Home",
+    "loading": "Loading...",
+    "error": "Error loading: "
+  }
 }

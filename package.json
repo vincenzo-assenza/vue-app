@@ -13,6 +13,7 @@
     "@nuxt/image": "^1.10.0",
     "@nuxtjs/i18n": "^9.3.4",
     "@tailwindcss/vite": "^4.0.15",
+    "gsap": "^3.12.7",
     "nuxt": "^3.16.1",
     "nuxt-security": "^2.2.0",
     "swiper": "^11.2.6",

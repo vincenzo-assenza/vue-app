@@ -11,8 +11,7 @@ export default defineNuxtConfig({
 	modules: ["@nuxtjs/i18n", "nuxt-security", "@nuxt/image"],
 
 	i18n: {
-		lazy: true,
-		locales: ["it", "en", "es"],
+		locales: ['it','en','es'],
 		defaultLocale: "en",
 		strategy: "prefix",
 	},
@@ -21,13 +20,6 @@ export default defineNuxtConfig({
 
 	app: {
 		pageTransition: { name: 'page', mode: 'out-in' },
-		head: {
-			title: "Creativa Shop",
-			htmlAttrs: {
-				lang: "en",
-			},
-			link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
-		},
 	},
 
 	security: {

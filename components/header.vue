@@ -2,13 +2,13 @@
   <header class="bg-white shadow-md sticky top-0 z-40">
     <div class="flex justify-between items-center p-6 md:px-12">
       <NuxtLinkLocale href="/">
-        <img :src="logoImage" width="150" :alt="$t('brand')" />
+        <img :src="logoImage" width="150" :alt="$t('logo.alt')" />
       </NuxtLinkLocale>
 
       <!-- Navigation Desktop -->
       <nav class="hidden md:flex space-x-6">
-        <NuxtLinkLocale to="/" class="text-gray-700 hover:text-blue-600">{{ $t('home') }}</NuxtLinkLocale>
-        <NuxtLinkLocale to="/categories" class="text-gray-700 hover:text-blue-600">{{ $t('categories') }}</NuxtLinkLocale>
+        <NuxtLinkLocale to="/" class="text-gray-700 hover:text-blue-600">{{ $t('common.home') }}</NuxtLinkLocale>
+        <NuxtLinkLocale to="/categories" class="text-gray-700 hover:text-blue-600">{{ $t('categories.title') }}</NuxtLinkLocale>
       </nav>
 
       <!-- Language Switcher -->
@@ -24,8 +24,8 @@
 
     <!-- Dropdown Mobile -->
     <div v-if="menuOpen" class="md:hidden bg-white shadow-md p-6 absolute w-full">
-      <NuxtLinkLocale to="/" class="block py-2 text-gray-700 hover:text-blue-600">{{ $t('home') }}</NuxtLinkLocale>
-      <NuxtLinkLocale to="/categories" class="block py-2 text-gray-700 hover:text-blue-600">{{ $t('categories') }}</NuxtLinkLocale>
+      <NuxtLinkLocale to="/" class="block py-2 text-gray-700 hover:text-blue-600">{{ $t('common.home') }}</NuxtLinkLocale>
+      <NuxtLinkLocale to="/categories" class="block py-2 text-gray-700 hover:text-blue-600">{{ $t('categories.title') }}</NuxtLinkLocale>
 
       <div class="md:hidden block absolute right-6 top-6">
         <Language />
@@ -52,7 +52,6 @@
 </script>
 
 <style>
-
   .page-enter-active,
   .page-leave-active {
     transition: all 0.3s;

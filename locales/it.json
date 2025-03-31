@@ -1,20 +1,38 @@
 {
-  "brand": "CreativaShop",
-  "home": "Home",
-  "categories": "Categorie",
-  "copyright": "© 2025 CreativaShop. Tutti i diritti riservati.",
-  "hero_title": "Lorem Ipsum",
-  "hero_subtitle": "Lorem Ipsum is simply dummy of the printing and typesetting industry.",
-  "hero_cta": "Scopri le collezioni",
-  "loading": "Caricamento...",
-  "error": "Errore nel caricamento: ",
-  "product_cta": "Scheda prodotto",
-  "add_to_cart": "Aggiungi al carrello",
-  "reviews": "Recensioni",
-  "back": "Torna alla lista prodotti",
-  "availability": "Disponibilità:",
-  "colors": "Colori:",
-  "shipping_time": "Tempo di consegna:",
-  "dimensions": "Dimensioni:",
-  "materials": "Materiali:"
+  "layouts":{
+    "title": "Creativa Shop",
+    "copyright": "© 2025 CreativaShop. Tutti i diritti riservati."
+  },
+  "logo":{
+    "alt": "CreativaShop"
+  },
+  "product":{
+    "cta": "Scheda prodotto",
+    "add_to_cart": "Aggiungi al carrello",
+    "reviews": "Recensioni",
+    "back": "Torna alla lista prodotti",
+    "availability": "Disponibilità:",
+    "colors": "Colori:",
+    "shipping_time": "Tempo di consegna:",
+    "dimensions": "Dimensioni:",
+    "materials": "Materiali:"
+  },
+  "categories":{
+    "title": "Categorie",
+    "meta":{
+      "title": "Categorie",
+      "description": "Lorem ipsum dolor sit"
+    },
+    "cta":"Vai alla collezione"
+  },
+  "hero":{
+    "title":"Lorem Ipsum",
+    "subtitle":"Lorem Ipsum is simply dummy of the printing and typesetting industry.",
+    "cta":"Scopri le collezioni"
+  },
+  "common":{
+    "home": "Home",
+    "loading": "Caricamento...",
+    "error": "Errore nel caricamento: "
+  }
 }
