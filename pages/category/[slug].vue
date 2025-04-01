@@ -12,12 +12,12 @@
     <p v-if="statusProducts.pending" class="text-gray-500">{{ $t("common.loading") }}</p>
     <p v-else-if="errorProducts" class="text-red-500">{{ $t("common.error") }} {{ errorProducts }}</p>
 
-    <div v-else class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+    <div v-if="products" class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
       <div 
         v-for="(product) in products" 
         :key="product.id"
         ref="productCards" 
-        class="bg-white p-4 shadow-md rounded-lg product-card"
+        class="bg-white p-4 shadow-md rounded-lg product-card opacity-0"
         :data-id="product.id"
         @mouseenter="hoverAnimation(product.id)"
         @mouseleave="hoverOutAnimation(product.id)"
@@ -55,7 +55,7 @@
     watch: [locale],
   });
 
-  const { data: products, status: statusProducts, error: errorProducts }=useFetch(`/api/products`, {
+  const { data: products, status: statusProducts, error: errorProducts }=await useFetch(`/api/products`, {
     headers: { 'accept-language': locale.value },
     watch: [locale],
   });
