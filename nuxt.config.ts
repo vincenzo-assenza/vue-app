@@ -11,16 +11,17 @@ export default defineNuxtConfig({
 	modules: ["@nuxtjs/i18n", "nuxt-security", "@nuxt/image"],
 
 	i18n: {
-		locales: ['it','en','es'],
+		baseUrl: 'https://localhost:3000',
+		locales: [
+			{ code: 'en', iso: 'en-US' },
+			{ code: 'it', iso: 'it-IT' },
+			{ code: 'es', iso: 'es-ES' }
+		],
 		defaultLocale: "en",
 		strategy: "prefix",
 	},
 
 	compatibilityDate: "2025-03-23",
-
-	app: {
-		pageTransition: { name: 'page', mode: 'out-in' },
-	},
 
 	security: {
 		headers: {

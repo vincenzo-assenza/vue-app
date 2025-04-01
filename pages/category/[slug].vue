@@ -14,15 +14,21 @@
 
     <div v-else class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
       <div 
-        v-for="(product, index) in products" 
-        :key="product.id" 
-        class="bg-white p-4 shadow-md rounded-lg product-card opacity-0"
-        ref="productCards"
-        v-on:mouseenter="hoverAnimation"
-        v-on:mouseleave="hoverOutAnimation"
+        v-for="(product) in products" 
+        :key="product.id"
+        ref="productCards" 
+        class="bg-white p-4 shadow-md rounded-lg product-card"
+        :data-id="product.id"
+        @mouseenter="hoverAnimation(product.id)"
+        @mouseleave="hoverOutAnimation(product.id)"
       >
-        <NuxtLinkLocale :to="`/product/${product.slug}`">
-          <NuxtImg :src="product.image" :alt="product.name" loading="lazy" placeholder class="w-full h-75 object-cover" />
+        <NuxtLinkLocale :to="`/product/${product.slug}`" class="block relative">
+          <NuxtImg :src="product.image" :alt="product.name" loading="lazy" placeholder class="w-full h-75 object-cover z-3 relative" />
+          <NuxtImg src="https://placehold.co/300x300/000000/FFFFFF?text=HOVER" 
+            :alt="product.name" 
+            loading="lazy" 
+            placeholder 
+            class="hover-image w-full h-75 object-cover absolute z-3 top-0 opacity-0" />
         </NuxtLinkLocale>
         <NuxtLinkLocale :to="`/product/${product.slug}`" class="text-black-600 hover:underline mt-2 inline-block">
           <h2 class="text-lg font-semibold mt-2">{{ product.name }}</h2>
@@ -54,7 +60,7 @@
     watch: [locale],
   });
 
-  const productCards=ref([]);
+  const productCards = ref([]);
 
   // Entry animation for products when the page is loaded
   onMounted(() => {
@@ -86,33 +92,35 @@
       });
     }
 
-    // Animation for products when they are loaded
-    // GSAP Timeline for animation
-    const tl=gsap.timeline({ paused: true });
+    if (products.value) {
+      // Animation for products when they are loaded
+      const tl=gsap.timeline({ paused: true });
 
-    // Add staggered animation using the timeline
-    tl.fromTo(
-      productCards.value,
-      { opacity: 0, y: 90 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power3.out",
-        stagger: 0.1
-      }
-    );
+      // Add staggered animation using the timeline
+      tl.fromTo(
+        productCards.value,
+        { opacity: 0, y: 90 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          stagger: 0.1
+        }
+      );
 
-    // Play the timeline after everything is mounted
-    tl.play();
+      // Play the timeline after everything is mounted
+      tl.play();
+    }
+
   });
 
   // Add animation on mouse hover
-  const hoverAnimation=(event) => {
-    gsap.to(event.target, { scale: 1.05, duration: 2, ease: "power1.out", });
+  const hoverAnimation=(productId) => {
+    gsap.to(`.product-card[data-id="${productId}"] .hover-image`, { opacity: 1, duration: 0.4, ease: "power1.out" });
   };
 
-  const hoverOutAnimation=(event) => {
-    gsap.to(event.target, { scale: 1, duration: 2, ease: "power1.out", });
+  const hoverOutAnimation=(productId) => {
+    gsap.to(`.product-card[data-id="${productId}"] .hover-image`, { opacity: 0, duration: 0.4, ease: "power1.out" });
   };
 </script>

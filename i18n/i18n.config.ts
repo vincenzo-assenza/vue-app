@@ -5,5 +5,7 @@ import es from "../locales/es.json";
 export default {
   legacy: false,
   locale: "en",
-  messages: { en, it, es }
+  messages: { en, it, es },
+  seo: false,
+  lazy: true
 };

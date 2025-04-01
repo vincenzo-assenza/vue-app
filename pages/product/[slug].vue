@@ -36,14 +36,19 @@
         </div>
         <div class="hidden md:block">
           <div class="space-y-4">
-            <NuxtImg 
+            <NuxtImg
+              width="980"
+              height="980"
+              placeholder
               loading="lazy"
               :src="product.gallery[0]" 
               :alt="product.name" 
               class="rounded-lg shadow-lg w-full h-auto mb-4" 
             />
             <NuxtImg
-              loading="lazy"
+              width="980"
+              height="980"
+              placeholder
               :src="product.gallery[1]" 
               :alt="product.name" 
               class="rounded-lg shadow-lg w-full h-auto" 
@@ -109,8 +114,8 @@
   import 'swiper/css/bundle';
   import { onMounted } from 'vue';
 
-  const route=useRoute();
-  const { locale }=useI18n();
+  const route = useRoute();
+  const { locale } = useI18n();
 
   const { data: product, status, error }=useFetch(`/api/products/${route.params.slug}`, {
     headers: { 'accept-language': locale.value },
@@ -128,6 +133,7 @@
   onMounted(() => {
     if (product.value) {
 
+      console.log(product.value)
       const origin=useRequestURL().origin
       const hreflangs = Object.keys(product.value.translations).map((lang) => {
         const translation = product.value.translations[lang];
