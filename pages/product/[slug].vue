@@ -3,7 +3,9 @@
     
     <NuxtLinkLocale @click="goBack" class="cursor-pointer text-black-600 block underline  hover:underline pb-6">{{ $t('product.back') }}</NuxtLinkLocale>
 
-    <div v-if="status.pending">{{ $t("common.loading") }}</div>
+    <div v-if="!product">
+      <ProductSkeleton />      
+    </div>
     <div v-else-if="error" class="text-red-500">
       {{ $t("common.error") }} {{ error }}
     </div>
@@ -117,7 +119,7 @@
   const route = useRoute();
   const { locale } = useI18n();
 
-  const { data: product, status, error }=useFetch(`/api/products/${route.params.slug}`, {
+  const { data: product, status, error } = await useFetch(`/api/products/${route.params.slug}`, {
     headers: { 'accept-language': locale.value },
     watch: [locale],
   });
