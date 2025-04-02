@@ -7,8 +7,8 @@
 
       <!-- Navigation Desktop -->
       <nav class="hidden md:flex space-x-6">
-        <NuxtLinkLocale to="/" class="text-gray-700 hover:text-blue-600">{{ $t('common.home') }}</NuxtLinkLocale>
-        <NuxtLinkLocale to="/categories" class="text-gray-700 hover:text-blue-600">{{ $t('categories.title') }}</NuxtLinkLocale>
+        <NuxtLinkLocale to="/" class="text-gray-700 hover:text-black">{{ $t('common.home') }}</NuxtLinkLocale>
+        <NuxtLinkLocale to="/categories" class="text-gray-700 hover:text-black">{{ $t('categories.title') }}</NuxtLinkLocale>
       </nav>
 
       <!-- Language Switcher -->
@@ -24,8 +24,8 @@
 
     <!-- Dropdown Mobile -->
     <div v-if="menuOpen" class="md:hidden bg-white shadow-md p-6 absolute w-full">
-      <NuxtLinkLocale to="/" class="block py-2 text-gray-700 hover:text-blue-600">{{ $t('common.home') }}</NuxtLinkLocale>
-      <NuxtLinkLocale to="/categories" class="block py-2 text-gray-700 hover:text-blue-600">{{ $t('categories.title') }}</NuxtLinkLocale>
+      <NuxtLinkLocale to="/" class="block py-2 text-gray-700 hover:text-black">{{ $t('common.home') }}</NuxtLinkLocale>
+      <NuxtLinkLocale to="/categories" class="block py-2 text-gray-700 hover:text-black">{{ $t('categories.title') }}</NuxtLinkLocale>
       <div class="md:hidden block absolute right-6 top-6">
         <Language />
       </div>

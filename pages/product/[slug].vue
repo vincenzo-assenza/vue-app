@@ -105,7 +105,7 @@
 
         <!-- Add to cart -->
         <div class="mt-6">
-          <button @click="addToCart(product.name)" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition w-full">
+          <button @click="addToCart(product.name)" class="bg-black text-white px-6 py-2 rounded-lg cursor-pointer transition w-full">
             {{ $t("product.add_to_cart") }}
           </button>
         </div>

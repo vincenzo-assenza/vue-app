@@ -18,7 +18,7 @@
                 height="400"
                 fit="inside" 
                 class="rounded-t-lg"
-                :src="category.image || '/media/category.jpg'" 
+                :src="category.image || 'https://placehold.co/600x400?text='+category.name" 
                 :alt="category.name"
                 placeholder
                 loading="lazy"
