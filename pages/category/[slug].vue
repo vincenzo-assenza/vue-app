@@ -64,7 +64,7 @@
 
   const productCards = ref([]);
 
-  // Entry animation for products when the page is loaded
+  // Entry animation when the page is loaded
   onMounted(() => {
     if (category.value) {
       const origin=useRequestURL().origin;
@@ -91,10 +91,9 @@
     }
 
     if (products.value) {
-      // Animation for products when they are loaded
+
       const tl=gsap.timeline({ paused: true });
 
-      // Add staggered animation using the timeline
       tl.fromTo(
         productCards.value,
         { opacity: 0, y: 90 },
@@ -107,7 +106,6 @@
         }
       );
 
-      // Play the timeline after everything is mounted
       tl.play();
     }
 
@@ -118,6 +116,7 @@
     gsap.to(`.product-card[data-id="${productId}"] .hover-image`, { opacity: 1, duration: 0.4, ease: "power1.out" });
   };
 
+  // Add animation on mouse leave
   const hoverOutAnimation=(productId) => {
     gsap.to(`.product-card[data-id="${productId}"] .hover-image`, { opacity: 0, duration: 0.4, ease: "power1.out" });
   };

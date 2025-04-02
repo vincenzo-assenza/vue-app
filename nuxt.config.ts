@@ -11,7 +11,6 @@ export default defineNuxtConfig({
 	modules: ["@nuxtjs/i18n", "nuxt-security", "@nuxt/image"],
 
 	i18n: {
-		baseUrl: 'https://localhost:3000',
 		locales: ['en', 'it', 'es'],
 		defaultLocale: "en",
 		strategy: "prefix",

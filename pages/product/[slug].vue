@@ -12,7 +12,7 @@
     <div v-else="product" class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-10 items-start">
       <div class="w-full lg:w-1/2">
 
-        <!-- Product Gallery -->
+        <!-- Swiper Gallery for mobile -->
         <div class="md:hidden">
           <swiper
             :modules="[Pagination, Zoom]"
@@ -36,6 +36,8 @@
             </swiper-slide>
           </swiper>
         </div>
+
+        <!-- Gallery for desktop --> 
         <div class="hidden md:block">
           <div class="space-y-4">
             <NuxtImg
@@ -153,11 +155,7 @@
           {
             name: 'description',
             content: product.value.longDescription,
-          },
-          {
-            name: 'robots',
-            content: 'index, follow',
-          },
+          }
         ],
         link: hreflangs, 
       });
