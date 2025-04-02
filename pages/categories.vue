@@ -13,13 +13,14 @@
           <NuxtLinkLocale :to="`/category/${category.slug}`">
             <div class="category-image">
               <NuxtImg
+                format="webp"
                 width="600"
                 height="400"
                 fit="inside" 
                 class="rounded-t-lg"
                 :src="category.image || '/media/category.jpg'" 
                 :alt="category.name"
-                :placeholder="[600, 400]"
+                placeholder
                 loading="lazy"
                 v-on:mouseenter="hoverAnimation"
                 v-on:mouseleave="hoverOutAnimation"
@@ -43,7 +44,7 @@
   import { onMounted, ref } from "vue";
   import { gsap } from "gsap";
 
-  const { locale } = useI18n();
+  const { t, locale } = useI18n();
 
   const categoryCard = ref([]);
 
@@ -53,18 +54,13 @@
   });
 
   useHead({
-    title: '',
+    title: computed(() => t('categories.meta.title')),
     meta: [
       {
         name: 'description',
-        content: '',
-      },
-      {
-        name: 'robots',
-        content: 'index, follow',
+        content: computed(() => t('categories.meta.description')),
       },
     ],
-    link: '',
   });
 
   onMounted(() => {

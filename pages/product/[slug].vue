@@ -3,14 +3,13 @@
     
     <NuxtLinkLocale @click="goBack" class="cursor-pointer text-black-600 block underline  hover:underline pb-6">{{ $t('product.back') }}</NuxtLinkLocale>
 
-    <div v-if="!product">
-      <ProductSkeleton />      
+    <div v-if="status === 'pending'">
+      <ProductSkeleton />
     </div>
     <div v-else-if="error" class="text-red-500">
       {{ $t("common.error") }} {{ error }}
     </div>
-
-    <div v-if="product" class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-10 items-start">
+    <div v-else="product" class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-10 items-start">
       <div class="w-full lg:w-1/2">
 
         <!-- Product Gallery -->
@@ -27,6 +26,7 @@
           >
             <swiper-slide v-for="(image, index) in product.gallery" :key="index" zoom>
               <NuxtImg 
+                format="webp"
                 placeholder
                 loading="lazy"
                 :src="image" 
@@ -39,6 +39,7 @@
         <div class="hidden md:block">
           <div class="space-y-4">
             <NuxtImg
+              format="webp"
               width="980"
               height="980"
               placeholder
@@ -48,6 +49,7 @@
               class="rounded-lg shadow-lg w-full h-auto mb-4" 
             />
             <NuxtImg
+              format="webp"
               width="980"
               height="980"
               placeholder
@@ -135,8 +137,7 @@
   onMounted(() => {
     if (product.value) {
 
-      console.log(product.value)
-      const origin=useRequestURL().origin
+      const origin = useRequestURL().origin
       const hreflangs = Object.keys(product.value.translations).map((lang) => {
         const translation = product.value.translations[lang];
         return {

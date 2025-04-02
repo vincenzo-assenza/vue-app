@@ -12,11 +12,7 @@ export default defineNuxtConfig({
 
 	i18n: {
 		baseUrl: 'https://localhost:3000',
-		locales: [
-			{ code: 'en', iso: 'en-US' },
-			{ code: 'it', iso: 'it-IT' },
-			{ code: 'es', iso: 'es-ES' }
-		],
+		locales: ['en', 'it', 'es'],
 		defaultLocale: "en",
 		strategy: "prefix",
 	},
@@ -32,6 +28,8 @@ export default defineNuxtConfig({
 	},
 
 	image: {
-		staticFilename: 'public/media', // Permetti a NuxtImg di servire immagini da public/
+		domain: ['placehold.co'],
+		provider: 'ipx',
+		staticFilename: 'public/media'
 	}
 });

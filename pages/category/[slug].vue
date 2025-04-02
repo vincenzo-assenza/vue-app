@@ -1,6 +1,8 @@
 <template>
   <div class="p-6 md:p-12">
-    <div v-if="statusCat.pending">{{ $t("common.loading") }}</div>
+    <div v-if="statusCat === 'pending'">
+      <Loading /> 
+    </div>
     <div v-else-if="errorCat" class="text-red-500">
       {{ $t("common.error") }} {{ errorCat }}
     </div>
@@ -9,10 +11,9 @@
       <h1 class="text-3xl font-bold text-gray-800 mb-6">{{ category?.name }}</h1>
     </div>
 
-    <p v-if="statusProducts.pending" class="text-gray-500">{{ $t("common.loading") }}</p>
-    <p v-else-if="errorProducts" class="text-red-500">{{ $t("common.error") }} {{ errorProducts }}</p>
-
-    <div v-if="products" class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+    <div v-if="statusProducts === 'pending'" class="text-gray-500"> <CategorySkeleton /> </div>
+    <div v-else-if="errorProducts" class="text-red-500">{{ $t("common.error") }} {{ errorProducts }}</div>
+    <div v-else="products" class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
       <div 
         v-for="(product) in products" 
         :key="product.id"
@@ -23,11 +24,12 @@
         @mouseleave="hoverOutAnimation(product.id)"
       >
         <NuxtLinkLocale :to="`/product/${product.slug}`" class="block relative">
-          <NuxtImg :src="product.image" :alt="product.name" loading="lazy" placeholder class="w-full h-75 object-cover z-3 relative" />
+          <NuxtImg :src="product.image" :alt="product.name" format="webp" loading="lazy" placeholder class="w-full h-75 object-cover z-3 relative" />
           <NuxtImg src="https://placehold.co/300x300/000000/FFFFFF?text=HOVER" 
             :alt="product.name" 
             loading="lazy" 
             placeholder 
+            format="webp"
             class="hover-image w-full h-75 object-cover absolute z-3 top-0 opacity-0" />
         </NuxtLinkLocale>
         <NuxtLinkLocale :to="`/product/${product.slug}`" class="text-black-600 hover:underline mt-2 inline-block">
@@ -82,10 +84,6 @@
           {
             name: 'description',
             content: category.value.description||'',
-          },
-          {
-            name: 'robots',
-            content: 'index, follow',
           },
         ],
         link: hreflangs,
